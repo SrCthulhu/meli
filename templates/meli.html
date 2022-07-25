@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="icon" href="https://forsedi.facturacfdi.mx/admindigital/images/mercadopago-icon.png">
+    <title>{{titulo}}</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a class="text-secondary text-decoration-none">Ubicación</a>
+                <a class="text-secondary text-decoration-none">Categorías</a>
+                <a class="text-secondary text-decoration-none">Ofertas</a>
+                <a class="text-secondary text-decoration-none">Historial</a>
+                <a class="text-secondary text-decoration-none">Supermercado</a>
+                <a class="text-secondary text-decoration-none">Moda</a>
+                <a class="text-secondary text-decoration-none">Vender</a>
+                <a class="text-secondary text-decoration-none">Ayuda/PQR</a>
+                <a class="text-secondary text-decoration-none">Crea tu cuenta</a>
+                <a class="text-secondary text-decoration-none">Ingresa</a>
+                <a class="text-secondary text-decoration-none">Mis Compras</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+
+                    {% for a in avisoPrincipal %}
+                    <div class="col-12">
+                        <a href="/meli/aviso/{{a['_id']}}">
+                            <img class="img-fluid" src="{{a['cover']}}" alt="">
+                        </a>
+
+                    </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <a class="text-secondary text-decoration-none">Hasta 48 Cuotas</a>
+                            <h6>Ver más</h6>
+                        </div>
+                        <div class="col-3">
+                            <a class="text-secondary text-decoration-none">Transferencia desde tu banco</a>
+                            <h6>Ver más</h6>
+                        </div>
+                        <div class="col-3">
+                            <a class="text-secondary text-decoration-none">Paga en efectivo</a>
+                            <h6>Ver más</h6>
+                        </div>
+                        <div class="col-3">
+                            <a class="text-secondary text-decoration-none">Más medios de pago</a>
+                            <h6>Ver más</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for p in productos %}
+                        <div class="col-2">
+                            <a class="text-decoration-none" href="/meli/linkdecompra/{{p['_id']}}">
+                                <img class="img-fluid" src="{{p['cover']}}" alt="">
+                                <p>{{p['title']}}</p>
+                                <h4>{{p['price']}}</h4>
+                            </a>
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h4>Suscribete al nivel 6</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>Consigue los mejores beneficios en mercado libre y mercado pago</h6>
+                        </div>
+                        {% for s in servicios %}
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-4"><img class="img-fluid" src="{{s['img']}}" alt=""></div>
+                                <div class="col-8">
+                                    <h6>{{s['nombre']}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-12">
+                            <button class="btn btn-primary">Suscribete</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Beneficios de Mercado Puntos</h4>
+                        </div>
+                        {% for b in beneficios %}
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-4"><img class="img-fluid" src="{{b['img']}}" alt=""></div>
+                                <div class="col-8">
+                                    <h6>{{b['tipo']}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col-12">
+                                <img class="img-fluid"
+                                    src="https://tpc.googlesyndication.com/simgad/3696345599289436159?" alt="">
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h4>Descubre</h4>
+                                </div>
+                                <div class="col-6"><img class="img-fluid"
+                                        src="https://http2.mlstatic.com/D_NQ_881731-MLA50012059585_052022-C.webp"
+                                        alt="">
+                                    <div class="col-4"><img class="img-fluid"
+                                            src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/widget-l6/d+.svg"
+                                            alt=""></div>
+                                    <div class="col-8">
+                                        <h6>Disney+ sin cargo</h6>
+                                    </div>
+                                </div>
+
+                                <h4>Consolas y Más</h4>
+                                <h4>Hasta 25% OFF</h4>
+                                <button class="btn btn-primary">Más</button>
+                            </div>
+                            <div class="col-6">
+                                <img class="img-fluid"
+                                    src="https://http2.mlstatic.com/D_NQ_852548-MLA50019301121_052022-C.webp" alt="">
+                                <h4>Relojes y Joyas</h4>
+                                <h4>Hasta 40% OFF</h4>
+                                <button class="btn btn-primary">Más</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h4>Las Mejores Tiendas te esperan</h4>
+                                </div>
+                                {% for t in tiendas %}
+                                <div class="col-3">
+                                    <img class="img-fluid" src="{{t['img']}}" alt="">
+                                    <button class="btn btn-primary">Ver Tienda</button>
+                                </div>
+                                {% endfor %}
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>Te puede interesar</h4>
+                                    </div>
+                                    {% for e in extras %}
+                                    <div class="col-6">
+                                        <img class="img-fluid" src="{{e['img']}}" alt="">
+                                        <button class="btn btn-primary">Ver más</button>
+                                    </div>
+                                    {% endfor %}
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h4>Colecciones: Supermercado</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <img class="img-fluid"
+                                                    src="https://http2.mlstatic.com/D_NQ_785071-MLA49925593730_052022-OO.webp"
+                                                    alt="">
+                                                <div class="col-12">
+                                                    <h2>Descubre Supermercado</h2>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+                                                    {% for s in supermercado %}
+                                                    <div class="col-3">
+                                                        <img class="img-fluid" src="{{s['img']}}" alt="">
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h4>Categorias Populares</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <a class="text-secondary">Carros, motos y otros</a>
+                                                    <a class="text-secondary">Computación</a>
+                                                    <a class="text-secondary">Ropa y Accesorios</a>
+                                                    <a class="text-secondary">Hogar y Muebles</a>
+                                                    <a class="text-secondary">Accesorios para Vehículos</a>
+                                                    <a class="text-secondary">Electrodomesticos</a>
+                                                    <a class="text-secondary">Cámara y Accesorios</a>
+                                                    <a class="text-secondary">Celulares y telefonos/a>
+                                                        <a class="text-secondary">Belleza y cuidado personal</a>
+                                                        <a class="text-secondary">Deportes y fitness</a>
+                                                        <a class="text-secondary">Electronica, Audio y Video</a>
+                                                        <a class="text-secondary">Consolas y videojuegos</a>
+                                                        <a class="text-secondary">Juegos y juguetes</a>
+                                                        <a class="text-secondary">Herramientas</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                {% for c in categorias %}
+                                                <div class="col-4">
+                                                    <img class="img-fluid" src="{{c['img']}}" alt="">
+                                                    <h6>{{c['titulo']}}</h6>
+                                                    <p>{{c['parrafo']}}</p>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+
+
+
+
+</body>
+
+</html>
