@@ -53,3 +53,45 @@ def meli_linkdecompra_view(id):
 
     linkdecompra = db.productoNuevo.find_one({'_id': ObjectId(id)})
     return render_template("meli_detalle.html", linkdecompra=linkdecompra)
+
+
+@app.route("/add/<id>")
+def add_product_to_cart(id):
+
+    product = db.productoNuevo.find_one({'_id': ObjectId(id)})
+
+    if not session.get('id'):
+        return redirect('/')
+
+    user = session.get('id')
+
+    nuevo = {}
+    nuevo['title'] = product['title']
+    nuevo['cover'] = product['cover']
+    nuevo['price'] = product['price']
+
+    nuevo['user_id'] = user
+
+    db.cart.insert_one(nuevo)
+
+    return redirect('/cart')
+
+
+@app.route("/cart")
+def cart_view():
+    if not session.get('id'):
+        return redirect('/')
+    user = session.get('id')
+
+    productoagregado = list(db.cart.find({'user_id': user}))
+    return render_template(
+        "cart.html", productoagregado=productoagregado)
+
+
+@app.route("/checkout/<id>")
+def check_view(id):
+    user = session.get('id')
+
+    compra = list(db.cart.find({'user_id': user}))
+    # Imprime en el template lo sumado al carrito en la base de datos.
+    return render_template("checkout.html", compra=compra)
